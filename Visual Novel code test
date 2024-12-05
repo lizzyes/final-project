@@ -1,0 +1,84 @@
+ # Initial scene setup
+        self.scene = 0  # Start with the first scene
+        self.dialogues = [
+            "Welcome to the Finals Week!",
+            "You can add dialogue here and it will change once the button is clicked."
+        ]
+        
+        # Background and character images
+        self.background_image=PhotoImage(file=r"C:\Users\dylan\Downloads\F9852533-DE91-456B-9197-C2B335D719D3.png")
+        
+        # Set up the canvas for background and character images
+        self.canvas = tk.Canvas(self.root, width=800, height=600)
+        self.canvas.pack()
+
+        # Add the background image to the canvas
+        self.background = self.canvas.create_image(0, 0, anchor="nw", image=self.background_image)
+
+        # Set up the text box for displaying dialogue
+        self.dialogue_box = tk.Label(self.root, text="", font=("Helvetica", 16), bg="white", anchor="w", justify="left", width=50, height=4)
+        self.dialogue_box.place(x=50, y=300)
+        
+        # Set up the button for advancing the dialogue
+        self.advance_button = tk.Button(self.root, text="Next", font=("Helvetica", 14), command=self.advance_dialogue)
+        self.advance_button.place(x=350, y=550)
+
+        # Set the first dialogue
+        self.update_dialogue()
+
+    def update_dialogue(self):
+        """Update the dialogue box and button based on the current scene."""
+        if self.scene < len(self.dialogues):
+            dialogue = self.dialogues[self.scene]
+            self.dialogue_box.config(text=dialogue)
+
+            if self.scene == 2:
+                self.add_choices()
+
+        else:
+            self.end_game()
+
+    def add_choices(self):
+        """Add choices to the story at scene 2."""
+        self.choice_button1 = tk.Button(self.root, text="Open the door", font=("Helvetica", 14), command=self.choice1)
+        self.choice_button1.place(x=200, y=450)
+        
+        self.choice_button2 = tk.Button(self.root, text="Leave the room", font=("Helvetica", 14), command=self.choice2)
+        self.choice_button2.place(x=400, y=450)
+
+    def choice1(self):
+        """Choice 1: Open the door."""
+        self.scene = 3
+        self.remove_choices()
+        self.update_dialogue()
+
+    def choice2(self):
+        """Choice 2: Leave the room."""
+        self.scene = 4
+        self.remove_choices()
+        self.update_dialogue()
+
+    def remove_choices(self):
+        """Remove choice buttons after making a decision."""
+        self.choice_button1.destroy()
+        self.choice_button2.destroy()
+
+    def advance_dialogue(self):
+        """Advance the story to the next scene."""
+        self.scene += 1
+        self.update_dialogue()
+
+    def end_game(self):
+        """End the game."""
+        messagebox.showinfo("Game Over", "Thank you for playing!")
+        self.root.quit()
+
+# Create the root window
+root = tk.Tk()
+
+# Create an instance of the VisualNovel class
+game = VisualNovel(root)
+
+# Start the Tkinter event loop
+root.mainloop()
+
