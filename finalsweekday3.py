@@ -6,6 +6,17 @@ class FinalsWeekApp:
         self.root.title("Finals Week")
         self.root.geometry("500x300")
 
+# Background and character images
+        self.background_image=PhotoImage(file=r"finalsweek.png")
+        
+        # Set up the canvas for background and character images
+        self.canvas = tk.Canvas(self.root, width=800, height=600)
+        self.canvas.pack()
+
+        # Add the background image to the canvas
+        self.background = self.canvas.create_image(0, 0, anchor="nw", image=self.background_image)
+
+        
         # Pages
         self.pages = {
             "main": "Chris invites you to an event. What do you say?",
