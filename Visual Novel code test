@@ -1,8 +1,17 @@
- # Initial scene setup
+import tkinter as tk
+from tkinter import messagebox
+from tkinter import PhotoImage
+class VisualNovel:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Visual Novel")
+        self.root.geometry("800x600")
+        
+        # Initial scene setup
         self.scene = 0  # Start with the first scene
         self.dialogues = [
             "Welcome to the Finals Week!",
-            "You can add dialogue here and it will change once the button is clicked."
+            "you can add dialogue to the code here"
         ]
         
         # Background and character images
@@ -81,4 +90,3 @@ game = VisualNovel(root)
 
 # Start the Tkinter event loop
 root.mainloop()
-
