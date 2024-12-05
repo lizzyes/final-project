@@ -1,0 +1,34 @@
+    def add_choices(self):
+        """Add choices to the story at scene 2."""
+        self.choice_button1 = tk.Button(self.root, text="Open the door", font=("Helvetica", 14), command=self.choice1)
+        self.choice_button1.place(x=200, y=450)
+        
+        self.choice_button2 = tk.Button(self.root, text="Leave the room", font=("Helvetica", 14), command=self.choice2)
+        self.choice_button2.place(x=400, y=450)
+
+    def choice1(self):
+        """Choice 1: Open the door."""
+        self.scene = 3
+        self.remove_choices()
+        self.update_dialogue()
+
+    def choice2(self):
+        """Choice 2: Leave the room."""
+        self.scene = 4
+        self.remove_choices()
+        self.update_dialogue()
+
+    def remove_choices(self):
+        """Remove choice buttons after making a decision."""
+        self.choice_button1.destroy()
+        self.choice_button2.destroy()
+
+    def advance_dialogue(self):
+        """Advance the story to the next scene."""
+        self.scene += 1
+        self.update_dialogue()
+
+    def end_game(self):
+        """End the game."""
+        messagebox.showinfo("Game Over", "Thank you for playing!")
+        self.root.quit()
