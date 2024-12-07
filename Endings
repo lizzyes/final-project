@@ -1,0 +1,45 @@
+#Good Ending:
+import tkinter
+from tkinter import PhotoImage
+root=tkinter.Tk()
+self.canvas = tk.Canvas(self.root, width=800, height=600)
+self.canvas.pack()
+
+
+image_path=PhotoImage(file=r"Untitled design.png")*
+bg_image=tkinter.Label(root,image=image_path)
+bg_image.pack()
+
+
+def doThis():
+    label_1.configure(text = "Although it was a hard journey, you were able to pull through in the end! Congrats you finished your first semester of college! You Win!!" )
+bob = tkinter.Tk()
+bob.geometry('900x500')
+label_1 = tkinter.Label(bob, text="After finals are over, you, your roommate, and Chris all go to the fair together to celebrate the end of finals and the semester itself!")
+label_1.pack()
+button_1 = tkinter.Button(bob, text="Next", command=doThis)
+button_1.pack()
+bob.mainloop()
+
+#Bad Ending:
+
+import tkinter
+from tkinter import PhotoImage
+root=tkinter.Tk()
+self.canvas = tk.Canvas(self.root, width=800, height=600)
+self.canvas.pack()
+
+image_path=PhotoImage(file=r"Untitled design (1).png")*
+bg_image=tkinter.Label(root,image=image_path)
+bg_image.pack()
+
+def doThis():
+    label_1.configure(text = "You apologize to your roommate but she doesn't blame you for the bad grade. You Failed.")
+    
+bob = tkinter.Tk()
+bob.geometry('900x500')
+label_1 = tkinter.Label(bob, text="It soon becomes your turn and you both do your best with what you have. Sadly you both only get a 60% on your project and you feel so guilty.")
+label_1.pack()
+button_1 = tkinter.Button(bob, text="Next", command=doThis)
+button_1.pack()
+bob.mainloop()
