@@ -8,42 +8,43 @@ root.geometry("800x650")
 titlescreen = PhotoImage(file=r"C:\Users\lizes\Downloads\classroompic.png")
 image_label = tk.Label(root, image=titlescreen)
 image_label.pack()
-
+    
 def movie_choice():
     label.config(text="You and your roommate accept the invitation to go see the movie. You end up having a great time all together. It's been\n a hot minute since you got the chance to spend time with Chris and couldn’t be happier. It’s pretty late by the time you both return to the dorms, when you\n and your roommate realize how much work you still have to do on your group project. You both agree that tomorrow will be dedicated to\n working on the group project. Once you finish showering, you crawl into bed for the night.")
     button_one.destroy()
     button_two.destroy()
-    button = tk.Button(root, text="NEXT", command=day_two)
-    button.pack()
 
 def dorm_choice():
     label.config(text="You convince your roommate to stay at the dorms because of the amount of work still needing to be done on the project.\n You text Chris and let him know you both can’t go. Chris is bummed but understands your reasoning. You thank them again for the offer\n and hope they have a great time seeing the movie. You and your roommate worked on the project until around\n 11:00 that night and made some good progress. You decide to call it quits for the night, shower, and head to bed.")
     button_one.destroy()
     button_two.destroy()
-    button = tk.Button(root, text="NEXT", command=day_two)
-    button.pack()
 
-def day_one():
-    label.config(text="You pressed the button!")
+def stay_choice():
+    label.config(text="You convince your roommate to stay at the dorms because of the amount of work still needing to be done on the project.\n You text Chris and let him know you both can’t go. Chris is bummed but understands your reasoning. You thank them again for the offer\n and hope they have a great time seeing the movie. You and your roommate worked on the project until around\n 11:00 that night and made some good progress. You decide to call it quits for the night, shower, and head to bed.")
+    button_one.destroy()
+    button_two.destroy()
 
 def day_two():
-    label.config(text="hello")
-
+    label.config(text="The next morning you wake up bright and early. Despite how much you want to lay back down and fall back asleep, you get out\n of bed and start getting ready for the day. Once you're ready you head out to your\n first class. Finally the class ended. You decide to stay on campus and find a cozy spot to work on some\n classwork. Suddenly one of Chris’s friends recognizes you and says hi. They sit down next to you and\n start trying to have small talk with you and you struggle to multitask between talking to the person and trying to get work done.")
+    stay_choice()
+    
 def change_background():
     new_image = PhotoImage(file=r"C:\Users\lizes\Downloads\friendjenna.png")
-    background_label.config(image=new_image)
-    background_label.image = new_image  # Keep a reference to avoid garbage collection
+    image_label.config(image=new_image)
+    image_label.image = new_image  # Keep a reference to avoid garbage collection
 
 # Set up the main window
-label = tk.Label(root, text="It feels like just yesterday\n that you applied to college here with your best friend, Chris, and you are already almost done with your first semester.\n You have been working hard to keep up you grades as you walk the college road, but one thing is for sure.\n No matter how hard the road is, you will walk the road together.", fg= "pink")
+label = tk.Label(root, text="It's Monday and you have been enjoying the little rest time you have left while eating lunch at the food court. You finish\n up your lunch and decide to head back to the dorms to continue working on your group project that is due in a couple days. While walking\n back to your dorm you run into your best friend who just got out of class. They invite you and your roommate out to a movie that night. You tell\n them that you will talk to your roommate and bid each other goodbye for now. Your roommate isn’t back yet when you arrive at the dorm\n so you get your computer out and get to work. Soon your roommate returns and you both talk about the movie you were invited to. ")
 label.pack()
-
 
 button_one = tk.Button(root, text="Go to the Movie",bg= "pink", command=movie_choice)
 button_one.pack()
 
 button_two = tk.Button(root, text="Decline",bg= "pink", command=dorm_choice)
 button_two.pack()
+
+button = tk.Button(root, text="NEXT", command=day_two)
+button.pack()
 
 
 root.mainloop()
